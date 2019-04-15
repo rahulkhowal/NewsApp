@@ -1,31 +1,20 @@
 import React from 'react'
 import '../App.css'
+let val = [];
 const UserInterface = (NewsItems) => {
-    const News = (article, id) => (
-        <li key={id}><a href={`${article.url}`}>{article.title}</a></li>
-    );
-    const index = Math.floor(Math.random() * 1)
 
-    const newsItems = NewsItems.length ? (NewsItems.map(NewsItem => {
-        return (News(NewsItem, index)
 
-        )
-    }
-
-    )
-    ) : (
-            <div>
-                please select the country and category
-            </div>
-        );
-
-    console.log(NewsItems)
+    val = Object.values(NewsItems)
+    //console.log(val[0])
 
     return (
-        <div className="news-items">
-            {newsItems}
+        val[0].map(cur =>
+            <div className="news-items">
+                <li><a rel="noopener" target="_blank" href={`${cur.url}`}>{cur.title}</a></li>
 
-        </div>
+            </div>
+
+        )
     )
 }
 export default UserInterface
